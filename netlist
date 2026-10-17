@@ -1,0 +1,945 @@
+// Generated for: spectre
+// Generated on: Oct 17 20:02:59 2026
+// Design library name: SCH_ADC00
+// Design cell name: [TestBench]
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters f=1.30208M
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/ms018_enhanced_v1p2_rev0_spe.lib" section=ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/ms018_enhanced_v1p2_rev0_spe.lib" section=bjt_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/ms018_enhanced_v1p2_rev0_spe.lib" section=dio_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/ms018_enhanced_v1p2_rev0_spe.lib" section=res_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/ms018_enhanced_v1p2_rev0_spe.lib" section=mim_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/ms018_enhanced_v1p2_rev0_spe.lib" section=var_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=res_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=mim_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=var_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=ind_rf_psub_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=ind_rf_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=3Tdiff_psub_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=3Tdiff_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=2Tdiff_psub_ss
+include "/SM01/foundry/competition/smic18mserf/smic18mserf_1833_1P5M_4Ia_1TMa4_MIM10_TYP1_oa_cds_2022_01_20_v1.20_rev0_0/smic18mmrf/../models/spectre/mse018_v1p11_rf_spe.lib" section=2Tdiff_ss
+
+// Library name: qixinLib
+// Cell name: buffer_for_sel
+// View name: schematic
+subckt buffer_for_sel PAD_SEl SEL_INT VDD VSS
+    R0 (PAD_SEl net1) resistor r=100 c=0
+    C0 (net1 VSS) capacitor c=100f
+    M0 (SEL_INT net3 VDD VDD) p33 w=(2u) l=300n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM0 (net3 net1 VDD VDD) p33 w=(2u) l=300n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    M1 (SEL_INT net3 VSS VSS) n33 w=(1u) l=350n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM0 (net3 net1 VSS VSS) n33 w=(1u) l=350n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+ends buffer_for_sel
+// End of subcircuit definition.
+
+// Library name: qixinLib
+// Cell name: power_switch_for_adc
+// View name: schematic
+subckt power_switch_for_adc AVDD AVDD_OUT AVSS PD
+    M1 (AVDD_OUT PD AVSS AVSS) n18 w=(8u) l=180n nf=4 as=3p ad=2.16p \
+        ps=15u pd=10.16u nrd=33.75m nrs=33.75m sa=480n sb=480n sd=540n \
+        sca=0 scb=0 scc=0 m=(1)
+    M0 (AVDD_OUT PD AVDD AVDD) p18 w=(750u) l=180n nf=75 as=204.6p \
+        ad=204.6p ps=800.92u pd=800.92u nrd=360u nrs=360u sa=480n sb=480n \
+        sd=540n sca=0 scb=0 scc=0 m=(1)
+ends power_switch_for_adc
+// End of subcircuit definition.
+
+// Library name: smic18mmrf
+// Cell name: rpposab
+// View name: schematic
+subckt rpposab_pcell_0 MINUS PLUS
+parameters segL=10u segW=500n
+    R0 (PLUS MINUS) rpposab m=1 l=segL w=segW
+ends rpposab_pcell_0
+// End of subcircuit definition.
+
+// Library name: qixinLib
+// Cell name: pad_switch_unit18_adc
+// View name: schematic
+subckt pad_switch_unit18_adc INT PAD SELN SELP VDDESD VSS
+    NM1 (INT SELN VSS VSS) n18 w=(2u) l=180n nf=2 as=960f ad=540f ps=5.92u \
+        pd=3.08u nrd=135m nrs=135m sa=480n sb=480n sd=540n sca=0 scb=0 \
+        scc=0 m=(1)
+    M1 (INT SELP net1 VSS) n18 w=(14u) l=180n nf=2 as=6.72p ad=3.78p \
+        ps=29.92u pd=15.08u nrd=19.2857m nrs=19.2857m sa=480n sb=480n \
+        sd=540n sca=0 scb=0 scc=0 m=(1)
+    M0 (INT SELN net1 VDDESD) p18 w=(30u) l=180n nf=2 as=14.4p ad=8.1p \
+        ps=61.92u pd=31.08u nrd=9m nrs=9m sa=480n sb=480n sd=540n sca=0 \
+        scb=0 scc=0 m=(1)
+    R0 (net1 PAD) rpposab_pcell_0 m=1 segL=1u segW=1.5u
+ends pad_switch_unit18_adc
+// End of subcircuit definition.
+
+// Library name: qixinLib
+// Cell name: pad_switch_for_adc_input
+// View name: schematic
+subckt pad_switch_for_adc_input PAD_VREF SELN SELP VDDESD VREF_INT VSS
+    R0 (PAD_VREF net1) resistor r=3 c=0
+    C0 (PAD_VREF VSS) capacitor c=10p
+    IUNIT\<20\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<19\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<18\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<17\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<16\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<15\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<14\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<13\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<12\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<11\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<10\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<9\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<8\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<7\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<6\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<5\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<4\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<3\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<2\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+    IUNIT\<1\> (VREF_INT net1 SELN SELP VDDESD VSS) pad_switch_unit18_adc
+ends pad_switch_for_adc_input
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_DAC_TG_1
+// View name: schematic
+subckt ADC00_DAC_TG_1 C CN GND IN OUT VDD
+    PM0 (IN CN OUT VDD) p18 w=(6u) l=180n nf=1 as=2.88p ad=2.88p ps=12.96u \
+        pd=12.96u nrd=45m nrs=45m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    NM0 (IN C OUT GND) n18 w=(2u) l=180n nf=1 as=960f ad=960f ps=4.96u \
+        pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+ends ADC00_DAC_TG_1
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_inv_1_strong
+// View name: schematic
+subckt ADC00_inv_1_strong GND IN OUT VDD
+    NM11 (OUT IN GND GND) n18 w=(1.5u) l=180n nf=2 as=720f ad=405f \
+        ps=4.92u pd=2.58u nrd=180m nrs=180m sa=480n sb=480n sd=540n sca=0 \
+        scb=0 scc=0 m=(1)
+    PM8 (OUT IN VDD VDD) p18 w=(3u) l=180n nf=2 as=1.44p ad=810f ps=7.92u \
+        pd=4.08u nrd=90m nrs=90m sa=480n sb=480n sd=540n sca=0 scb=0 scc=0 \
+        m=(1)
+ends ADC00_inv_1_strong
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_DAC_SW_1
+// View name: schematic
+subckt ADC00_DAC_SW_1 CLK GND OUT VDD VIN VREF
+    I3 (CLK CLK_N GND VIN OUT VDD) ADC00_DAC_TG_1
+    I1 (CLK_N CLK GND VREF OUT VDD) ADC00_DAC_TG_1
+    I0 (GND CLK CLK_N VDD) ADC00_inv_1_strong
+ends ADC00_DAC_SW_1
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_Comparator_3
+// View name: schematic
+subckt ADC00_Comparator_3 AGND AVDD CLK Vin Vip Von Vop
+    NM17 (AGND AGND AGND AGND) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM19 (AGND AGND AGND AGND) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM14 (AGND AGND AGND AGND) n18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM18 (AGND AGND AGND AGND) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM10 (AGND AGND AGND AGND) n18 w=(1.5u) l=1.5u nf=1 as=720f ad=720f \
+        ps=3.96u pd=3.96u nrd=180m nrs=180m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(4)
+    NM9 (Vop Vo1 AGND AGND) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM8 (Vop Von AGND AGND) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM7 (Von Vop AGND AGND) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM6 (Von Vo2 AGND AGND) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM5 (net08 Vo1 AGND AGND) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM4 (net017 Vo2 AGND AGND) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM3 (net030 Vin AGND AGND) n18 w=(1.5u) l=1.5u nf=1 as=720f ad=720f \
+        ps=3.96u pd=3.96u nrd=180m nrs=180m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(3)
+    NM2 (net6 Vip AGND AGND) n18 w=(1.5u) l=1.5u nf=1 as=720f ad=720f \
+        ps=3.96u pd=3.96u nrd=180m nrs=180m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(3)
+    NM1 (Vo1 CLK net030 AGND) n18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    NM0 (Vo2 CLK net6 AGND) n18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    PM10 (AVDD AVDD AVDD AVDD) p18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    PM9 (AVDD AVDD AVDD AVDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    PM6 (AVDD AVDD AVDD AVDD) p18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(2)
+    PM5 (Vop Von net08 AVDD) p18 w=2u l=180n nf=1 as=480f ad=480f ps=2.96u \
+        pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=2
+    PM4 (Von Vop net017 AVDD) p18 w=2u l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=2
+    PM3 (net08 Vo1 AVDD AVDD) p18 w=2u l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=2
+    PM2 (net017 Vo2 AVDD AVDD) p18 w=2u l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=2
+    PM1 (Vo1 CLK AVDD AVDD) p18 w=2u l=180n nf=1 as=240f ad=240f ps=1.96u \
+        pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=2
+    PM0 (Vo2 CLK AVDD AVDD) p18 w=2u l=180n nf=1 as=240f ad=240f ps=1.96u \
+        pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=2
+ends ADC00_Comparator_3
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_BUFUHDV4
+// View name: schematic
+subckt ADC00_BUFUHDV4 I VDD VNW VPW VSS Z
+    MM0 (Z net7 VSS VPW) n18 w=(2.88u) l=180n nf=1 as=1.3824p ad=1.3824p \
+        ps=6.72u pd=6.72u nrd=93.75m nrs=93.75m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM15 (net7 I VSS VPW) n18 w=(1.12u) l=180n nf=1 as=537.6f ad=537.6f \
+        ps=3.2u pd=3.2u nrd=241.071m nrs=241.071m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM1 (Z net7 VDD VNW) p18 w=(4.04u) l=180n nf=1 as=1.9392p ad=1.9392p \
+        ps=9.04u pd=9.04u nrd=66.8317m nrs=66.8317m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM7 (net7 I VDD VNW) p18 w=(1.52u) l=180n nf=1 as=729.6f ad=729.6f \
+        ps=4u pd=4u nrd=177.632m nrs=177.632m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+ends ADC00_BUFUHDV4
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_NAND2UHDV1
+// View name: schematic
+subckt ADC00_NAND2UHDV1 A1 A2 ZN VDD VSS VNW VPW
+    MM1 (ZN A1 net4 VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM3 (net4 A2 VSS VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM0 (ZN A2 VDD VNW) p18 w=(1.01E-06) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM2 (ZN A1 VDD VNW) p18 w=(1.01E-06) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+ends ADC00_NAND2UHDV1
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_BUFUHDV24
+// View name: schematic
+subckt ADC00_BUFUHDV24 I VDD VNW VPW VSS Z
+    MM7 (net11 I VDD VNW) p18 w=(9.09u) l=180n nf=1 as=4.3632p ad=4.3632p \
+        ps=19.14u pd=19.14u nrd=29.703m nrs=29.703m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM1 (Z net11 VDD VNW) p18 w=(24.24u) l=180n nf=1 as=11.6352p \
+        ad=11.6352p ps=49.44u pd=49.44u nrd=11.1386m nrs=11.1386m sa=480n \
+        sb=480n sd=0 sca=0 scb=0 scc=0 m=(1)
+    MM15 (net11 I VSS VPW) n18 w=(6.48u) l=180n nf=1 as=3.1104p ad=3.1104p \
+        ps=13.92u pd=13.92u nrd=41.6667m nrs=41.6667m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM0 (Z net11 VSS VPW) n18 w=(17.28u) l=180n nf=1 as=8.2944p ad=8.2944p \
+        ps=35.52u pd=35.52u nrd=15.625m nrs=15.625m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+ends ADC00_BUFUHDV24
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_DAC_bootstrap_new
+// View name: schematic
+subckt ADC00_DAC_bootstrap_new ClkS GND VDD Vin Vo
+    NM13 (GND ClkS_N net37 GND) n18 w=(2u) l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM8 (net37 VDD bootstrap GND) n18 w=(2u) l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM2 (ClkS_N ClkS GND GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM0 (Vin bootstrap net013 GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM14 (net20 ClkS net013 GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM6 (net20 bootstrap net013 GND) n18 w=(2u) l=180n nf=2 as=960f \
+        ad=540f ps=5.92u pd=3.08u nrd=135m nrs=135m sa=480n sb=480n \
+        sd=540n sca=0 scb=0 scc=0 m=(1)
+    NM1 (Vo bootstrap Vin GND) n18 w=(20u) l=180n nf=10 as=6.24p ad=5.4p \
+        ps=30.24u pd=25.4u nrd=13.5m nrs=13.5m sa=480n sb=480n sd=540n \
+        sca=0 scb=0 scc=0 m=(1)
+    NM12 (net013 ClkS_N GND GND) n18 w=(2u) l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    C0 (net23 net013) mim w=15u l=15u m=1
+    PM3 (net23 bootstrap VDD net23) p18 w=(2u) l=180n nf=2 as=960f ad=540f \
+        ps=5.92u pd=3.08u nrd=135m nrs=135m sa=480n sb=480n sd=540n sca=0 \
+        scb=0 scc=0 m=(1)
+    PM0 (net20 ClkS VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM4 (bootstrap net20 net23 net23) p18 w=(2u) l=180n nf=2 as=960f \
+        ad=540f ps=5.92u pd=3.08u nrd=135m nrs=135m sa=480n sb=480n \
+        sd=540n sca=0 scb=0 scc=0 m=(1)
+    PM5 (ClkS_N ClkS VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+ends ADC00_DAC_bootstrap_new
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_INUHDV1
+// View name: schematic
+subckt ADC00_INUHDV1 I VDD VNW VPW VSS ZN
+    MM12 (ZN I VSS VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM13 (ZN I VDD VNW) p18 w=(1.01E-06) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+ends ADC00_INUHDV1
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_DAC_CapArray
+// View name: schematic
+subckt ADC00_DAC_CapArray DAC_OUT GND OUT0 OUT1 OUT2 OUT3 OUT4 OUT5 OUT6 \
+        OUT7 OUT8
+    C7 (GND net025) mim w=6u l=6u m=1
+    C6 (net023 net024) mim w=6u l=6u m=1
+    C5 (net021 net022) mim w=6u l=6u m=1
+    C8 (GND net026) mim w=6u l=6u m=1
+    C3 (net012 net011) mim w=6u l=6u m=1
+    C2 (net014 net013) mim w=6u l=6u m=1
+    C1 (GND GND) mim w=6u l=6u m=26
+    C29 (DAC_OUT OUT8) mim w=6u l=6u m=8
+    C25 (DAC_OUT OUT7) mim w=6u l=6u m=4
+    C24 (DAC_OUT OUT6) mim w=6u l=6u m=2
+    C23 (DAC_OUT OUT5) mim w=6u l=6u m=1
+    C0 (net06 DAC_OUT) mim w=6.17u l=6.17u m=1
+    C22 (net06 OUT4) mim w=6u l=6u m=8
+    C21 (net06 OUT3) mim w=6u l=6u m=4
+    C20 (net06 OUT2) mim w=6u l=6u m=2
+    C11 (net06 OUT1) mim w=5.75u l=5.75u m=1
+    C18 (net06 OUT0) mim w=5.75u l=5.75u m=1
+ends ADC00_DAC_CapArray
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_DQUHDV1
+// View name: schematic
+subckt ADC00_DQUHDV1 CK D Q VDD VNW VPW VSS
+    MM4 (net0129 D VSS VPW) n18 w=(360n) l=180n nf=1 as=212.4f ad=212.4f \
+        ps=1.88u pd=1.88u nrd=861.111m nrs=861.111m sa=520n sb=520n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM9 (net0129 cn net55 VPW) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM24 (Q net92 VSS VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM0 (cn CK VSS VPW) n18 w=(420n) l=180n nf=1 as=201.6f ad=201.6f \
+        ps=1.8u pd=1.8u nrd=642.857m nrs=642.857m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM13 (net55 c net64 VPW) n18 w=(730n) l=180n nf=1 as=350.4f ad=350.4f \
+        ps=2.42u pd=2.42u nrd=369.863m nrs=369.863m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM15 (net64 net56 VSS VPW) n18 w=(360n) l=180n nf=1 as=212.4f \
+        ad=212.4f ps=1.88u pd=1.88u nrd=861.111m nrs=861.111m sa=520n \
+        sb=520n sd=0 sca=0 scb=0 scc=0 m=(1)
+    MM31 (net0109 cn net79 VPW) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM18 (net0109 net92 VSS VPW) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM10 (net56 net55 VSS VPW) n18 w=(360n) l=180n nf=1 as=212.4f \
+        ad=212.4f ps=1.88u pd=1.88u nrd=861.111m nrs=861.111m sa=520n \
+        sb=520n sd=0 sca=0 scb=0 scc=0 m=(1)
+    MM16 (net56 c net79 VPW) n18 w=(430n) l=180n nf=1 as=206.4f ad=206.4f \
+        ps=1.82u pd=1.82u nrd=627.907m nrs=627.907m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM2 (c cn VSS VPW) n18 w=(250n) l=180n nf=1 as=201.4f ad=201.4f \
+        ps=1.88u pd=1.88u nrd=1.24 nrs=1.24 sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM20 (net92 net79 VSS VPW) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM6 (net88 c net55 VNW) p18 w=(580n) l=180n nf=1 as=278.4f ad=278.4f \
+        ps=2.12u pd=2.12u nrd=465.517m nrs=465.517m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM5 (net88 D VDD VNW) p18 w=(580n) l=180n nf=1 as=278.4f ad=278.4f \
+        ps=2.12u pd=2.12u nrd=465.517m nrs=465.517m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM12 (net19 net56 VDD VNW) p18 w=(580n) l=180n nf=1 as=278.4f \
+        ad=278.4f ps=2.12u pd=2.12u nrd=465.517m nrs=465.517m sa=480n \
+        sb=480n sd=0 sca=0 scb=0 scc=0 m=(1)
+    MM14 (net55 cn net19 VNW) p18 w=(580n) l=180n nf=1 as=278.4f ad=278.4f \
+        ps=2.12u pd=2.12u nrd=465.517m nrs=465.517m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM26 (net68 c net79 VNW) p18 w=(490n) l=180n nf=1 as=235.2f ad=235.2f \
+        ps=1.94u pd=1.94u nrd=551.02m nrs=551.02m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM22 (net68 net92 VDD VNW) p18 w=(730n) l=180n nf=1 as=350.4f \
+        ad=350.4f ps=2.42u pd=2.42u nrd=369.863m nrs=369.863m sa=480n \
+        sb=480n sd=0 sca=0 scb=0 scc=0 m=(1)
+    MM25 (Q net92 VDD VNW) p18 w=(1.01u) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM1 (cn CK VDD VNW) p18 w=(250n) l=180n nf=1 as=201.4f ad=201.4f \
+        ps=1.88u pd=1.88u nrd=1.24 nrs=1.24 sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM11 (net56 net55 VDD VNW) p18 w=(580n) l=180n nf=1 as=278.4f \
+        ad=278.4f ps=2.12u pd=2.12u nrd=465.517m nrs=465.517m sa=480n \
+        sb=480n sd=0 sca=0 scb=0 scc=0 m=(1)
+    MM3 (c cn VDD VNW) p18 w=(420n) l=180n nf=1 as=201.6f ad=201.6f \
+        ps=1.8u pd=1.8u nrd=642.857m nrs=642.857m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM17 (net56 cn net79 VNW) p18 w=(960n) l=180n nf=1 as=460.8f ad=460.8f \
+        ps=2.88u pd=2.88u nrd=281.25m nrs=281.25m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM23 (net92 net79 VDD VNW) p18 w=(1.01u) l=180n nf=1 as=484.8f \
+        ad=484.8f ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n \
+        sb=480n sd=0 sca=0 scb=0 scc=0 m=(1)
+ends ADC00_DQUHDV1
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_BUFUHDV16
+// View name: schematic
+subckt ADC00_BUFUHDV16 I VDD VNW VPW VSS Z
+    MM0 (Z net7 VSS VPW) n18 w=(11.52u) l=180n nf=1 as=5.5296p ad=5.5296p \
+        ps=24u pd=24u nrd=23.4375m nrs=23.4375m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM15 (net7 I VSS VPW) n18 w=(4.32u) l=180n nf=1 as=2.0736p ad=2.0736p \
+        ps=9.6u pd=9.6u nrd=62.5m nrs=62.5m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM1 (Z net7 VDD VNW) p18 w=(16.16u) l=180n nf=1 as=7.7568p ad=7.7568p \
+        ps=33.28u pd=33.28u nrd=16.7079m nrs=16.7079m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM7 (net7 I VDD VNW) p18 w=(6.06u) l=180n nf=1 as=2.9088p ad=2.9088p \
+        ps=13.08u pd=13.08u nrd=44.5545m nrs=44.5545m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+ends ADC00_BUFUHDV16
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_BUFUHDV3
+// View name: schematic
+subckt ADC00_BUFUHDV3 I VDD VNW VPW VSS Z
+    MM0 (Z net7 VSS VPW) n18 w=(2.16u) l=180n nf=1 as=1.0368p ad=1.0368p \
+        ps=5.28u pd=5.28u nrd=125m nrs=125m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM15 (net7 I VSS VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM1 (Z net7 VDD VNW) p18 w=(3.03u) l=180n nf=1 as=1.4544p ad=1.4544p \
+        ps=7.02u pd=7.02u nrd=89.1089m nrs=89.1089m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM7 (net7 I VDD VNW) p18 w=(1.01u) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+ends ADC00_BUFUHDV3
+// End of subcircuit definition.
+
+// Library name: LAY_ADC00
+// Cell name: ADC00_DAC_TG_VIN
+// View name: schematic
+subckt ADC00_DAC_TG_VIN_schematic C CN GND IN OUT VDD
+    NM0 (IN C OUT GND) n18 w=(5u) l=180n nf=1 as=2.4p ad=2.4p ps=10.96u \
+        pd=10.96u nrd=54m nrs=54m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    PM0 (IN CN OUT VDD) p18 w=(12u) l=180n nf=1 as=5.76p ad=5.76p \
+        ps=24.96u pd=24.96u nrd=22.5m nrs=22.5m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+ends ADC00_DAC_TG_VIN_schematic
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_Logic_AND_Strong
+// View name: schematic
+subckt ADC00_Logic_AND_Strong A AGND AVDD B C
+    M4 (net13 A AVDD AVDD) p18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    M2 (net13 B AVDD AVDD) p18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    M0 (C net13 AVDD AVDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f ps=4.96u \
+        pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    M5 (net013 B AGND AGND) n18 w=(400n) l=180n nf=1 as=216.4f ad=216.4f \
+        ps=1.88u pd=1.88u nrd=775m nrs=775m sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    M3 (net13 A net013 AGND) n18 w=(400n) l=180n nf=1 as=216.4f ad=216.4f \
+        ps=1.88u pd=1.88u nrd=775m nrs=775m sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    M1 (C net13 AGND AGND) n18 w=(1u) l=180n nf=1 as=480f ad=480f ps=2.96u \
+        pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+ends ADC00_Logic_AND_Strong
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_inv_1
+// View name: schematic
+subckt ADC00_inv_1 GND IN OUT VDD
+    NM11 (OUT IN GND GND) n18 w=(500n) l=180n nf=1 as=240f ad=240f \
+        ps=1.96u pd=1.96u nrd=540m nrs=540m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM8 (OUT IN VDD VDD) p18 w=(1u) l=180n nf=1 as=480f ad=480f ps=2.96u \
+        pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+ends ADC00_inv_1
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_Logic_AND
+// View name: schematic
+subckt ADC00_Logic_AND A AGND AVDD B C
+    M4 (net13 A AVDD AVDD) p18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    M2 (net13 B AVDD AVDD) p18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    M0 (C net13 AVDD AVDD) p18 w=(440n) l=180n nf=1 as=211.2f ad=211.2f \
+        ps=1.84u pd=1.84u nrd=613.636m nrs=613.636m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    M5 (net013 B AGND AGND) n18 w=(400n) l=180n nf=1 as=216.4f ad=216.4f \
+        ps=1.88u pd=1.88u nrd=775m nrs=775m sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    M3 (net13 A net013 AGND) n18 w=(400n) l=180n nf=1 as=216.4f ad=216.4f \
+        ps=1.88u pd=1.88u nrd=775m nrs=775m sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    M1 (C net13 AGND AGND) n18 w=(220n) l=180n nf=1 as=198.4f ad=198.4f \
+        ps=1.88u pd=1.88u nrd=1.40909 nrs=1.40909 sa=520n sb=520n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+ends ADC00_Logic_AND
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_Logic_XOR_Smaller
+// View name: schematic
+subckt ADC00_Logic_XOR_Smaller A AGND AVDD B F
+    NM4 (F A net25 AGND) n18 w=(400n) l=180n nf=1 as=216.4f ad=216.4f \
+        ps=1.88u pd=1.88u nrd=775m nrs=775m sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM3 (net25 B AGND AGND) n18 w=(400n) l=180n nf=1 as=216.4f ad=216.4f \
+        ps=1.88u pd=1.88u nrd=775m nrs=775m sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM2 (F net26 AGND AGND) n18 w=(400n) l=180n nf=1 as=216.4f ad=216.4f \
+        ps=1.88u pd=1.88u nrd=775m nrs=775m sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM0 (net26 A AGND AGND) n18 w=(400n) l=180n nf=1 as=216.4f ad=216.4f \
+        ps=1.88u pd=1.88u nrd=775m nrs=775m sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM1 (net26 B AGND AGND) n18 w=(400n) l=180n nf=1 as=216.4f ad=216.4f \
+        ps=1.88u pd=1.88u nrd=775m nrs=775m sa=520n sb=520n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM4 (F net26 net23 AVDD) p18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM2 (net23 B AVDD AVDD) p18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM1 (net26 A net27 AVDD) p18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM0 (net27 B AVDD AVDD) p18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM3 (net23 A AVDD AVDD) p18 w=(600n) l=180n nf=1 as=288f ad=288f \
+        ps=2.16u pd=2.16u nrd=450m nrs=450m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+ends ADC00_Logic_XOR_Smaller
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_DAC_SW_2
+// View name: schematic
+subckt ADC00_DAC_SW_2 CK\- GND Ni OUT Pi VCM VDD VGND VIN VREF
+    I27 (CK\- net045 GND VIN OUT VDD) ADC00_DAC_TG_VIN_schematic
+    I2 (CLK_VCM net20 GND VCM OUT VDD) ADC00_DAC_TG_1
+    I1 (CLK_VREF net21 GND VREF OUT VDD) ADC00_DAC_TG_1
+    I0 (Pi net22 GND VGND OUT VDD) ADC00_DAC_TG_1
+    I11 (net013 GND VDD Ni net027) ADC00_Logic_AND_Strong
+    I20 (GND net027 net032 VDD) ADC00_inv_1
+    I18 (GND net025 net024 VDD) ADC00_inv_1
+    I13 (GND CK\- net020 VDD) ADC00_inv_1
+    I7 (GND Pi net022 VDD) ADC00_inv_1
+    I26 (GND CK\- net045 VDD) ADC00_inv_1_strong
+    I21 (GND net032 CLK_VREF VDD) ADC00_inv_1_strong
+    I19 (GND net024 CLK_VCM VDD) ADC00_inv_1_strong
+    I6 (GND CLK_VCM net20 VDD) ADC00_inv_1_strong
+    I5 (GND CLK_VREF net21 VDD) ADC00_inv_1_strong
+    I4 (GND Pi net22 VDD) ADC00_inv_1_strong
+    I10 (net022 GND VDD net020 net013) ADC00_Logic_AND
+    I17 (net013 GND VDD Ni net025) ADC00_Logic_XOR_Smaller
+ends ADC00_DAC_SW_2
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_SAR_Logic_new
+// View name: schematic
+subckt ADC00_SAR_Logic_new CMPN CMPP D GND N P Q VAL VDD
+    NM17 (N net13 GND GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f ps=2.96u \
+        pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    NM10 (net15 Q GND GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f ps=2.96u \
+        pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    NM9 (net25 net13 net15 GND) n18 w=(6u) l=180n nf=3 as=2.04p ad=2.04p \
+        ps=10.04u pd=10.04u nrd=45m nrs=45m sa=480n sb=480n sd=540n sca=0 \
+        scb=0 scc=0 m=(1)
+    NM11 (P net10 GND GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f ps=2.96u \
+        pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    NM7 (net17 net10 net15 GND) n18 w=(6u) l=180n nf=3 as=2.04p ad=2.04p \
+        ps=10.04u pd=10.04u nrd=45m nrs=45m sa=480n sb=480n sd=540n sca=0 \
+        scb=0 scc=0 m=(1)
+    NM6 (net13 CMPN net17 GND) n18 w=(6u) l=180n nf=3 as=2.04p ad=2.04p \
+        ps=10.04u pd=10.04u nrd=45m nrs=45m sa=480n sb=480n sd=540n sca=0 \
+        scb=0 scc=0 m=(1)
+    NM5 (net13 N net17 GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM4 (net10 CMPP net25 GND) n18 w=(6u) l=180n nf=3 as=2.04p ad=2.04p \
+        ps=10.04u pd=10.04u nrd=45m nrs=45m sa=480n sb=480n sd=540n sca=0 \
+        scb=0 scc=0 m=(1)
+    NM3 (net10 P net25 GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM2 (Q net04 GND GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f ps=2.96u \
+        pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    NM1 (net32 D GND GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f ps=2.96u \
+        pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    NM0 (net04 VAL net32 GND) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM7 (N net13 VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f ps=4.96u \
+        pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    PM8 (P net10 VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f ps=4.96u \
+        pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    PM6 (net13 Q VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f ps=4.96u \
+        pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    PM5 (net13 net10 VDD VDD) p18 w=(6u) l=180n nf=3 as=2.04p ad=2.04p \
+        ps=10.04u pd=10.04u nrd=45m nrs=45m sa=480n sb=480n sd=540n sca=0 \
+        scb=0 scc=0 m=(1)
+    PM4 (net10 net13 VDD VDD) p18 w=(6u) l=180n nf=3 as=2.04p ad=2.04p \
+        ps=10.04u pd=10.04u nrd=45m nrs=45m sa=480n sb=480n sd=540n sca=0 \
+        scb=0 scc=0 m=(1)
+    PM3 (net10 Q VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f ps=4.96u \
+        pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    PM2 (Q VAL net33 VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f ps=4.96u \
+        pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+    PM1 (net33 net04 VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM0 (net04 D VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f ps=4.96u \
+        pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 scb=0 scc=0 \
+        m=(1)
+ends ADC00_SAR_Logic_new
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_NOR2UHDV1
+// View name: schematic
+subckt ADC00_NOR2UHDV1 A1 A2 VDD VNW VPW VSS ZN
+    MM8 (ZN A1 net7 VNW) p18 w=(1.01E-06) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM4 (net7 A2 VDD VNW) p18 w=(1.01E-06) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM9 (ZN A1 VSS VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM5 (ZN A2 VSS VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+ends ADC00_NOR2UHDV1
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_XOR2UHDV1
+// View name: schematic
+subckt ADC00_XOR2UHDV1 A1 A2 VDD VNW VPW VSS Z
+    MM0 (a2n A2 VSS VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM4 (net45 a2n VSS VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM7 (Z a1n net45 VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM3 (a1n A1 VSS VPW) n18 w=(720n) l=180n nf=1 as=345.6f ad=345.6f \
+        ps=2.4u pd=2.4u nrd=375m nrs=375m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM13 (a2n A1 Z VPW) n18 w=(8E-07) l=180n nf=1 as=384f ad=384f ps=2.56u \
+        pd=2.56u nrd=337.5m nrs=337.5m sa=480n sb=480n sd=0 sca=0 scb=0 \
+        scc=0 m=(1)
+    MM1 (a2n A2 VDD VNW) p18 w=(1.01E-06) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM5 (net64 a2n VDD VNW) p18 w=(1.01E-06) l=180n nf=1 as=484.8f \
+        ad=484.8f ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n \
+        sb=480n sd=0 sca=0 scb=0 scc=0 m=(1)
+    MM6 (Z A1 net64 VNW) p18 w=(1.01E-06) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM2 (a1n A1 VDD VNW) p18 w=(1.01E-06) l=180n nf=1 as=484.8f ad=484.8f \
+        ps=2.98u pd=2.98u nrd=267.327m nrs=267.327m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+    MM11 (a2n a1n Z VNW) p18 w=(1.17E-06) l=180n nf=1 as=561.6f ad=561.6f \
+        ps=3.3u pd=3.3u nrd=230.769m nrs=230.769m sa=480n sb=480n sd=0 \
+        sca=0 scb=0 scc=0 m=(1)
+ends ADC00_XOR2UHDV1
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_INUHDV2
+// View name: schematic
+subckt ADC00_INUHDV2 I ZN VDD VSS VNW VPW
+    MM12 (ZN I VSS VPW) n18 w=(1.44E-06) l=180n nf=1 as=691.2f ad=691.2f \
+        ps=3.84u pd=3.84u nrd=187.5m nrs=187.5m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    MM13 (ZN I VDD VNW) p18 w=(2.02E-06) l=180n nf=1 as=969.6f ad=969.6f \
+        ps=5u pd=5u nrd=133.663m nrs=133.663m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+ends ADC00_INUHDV2
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00_Logic_ComparatorControl_standard
+// View name: schematic
+subckt ADC00_Logic_ComparatorControl_standard AGND AVDD CLKc OUTN OUTP P1 \
+        SAM SAM\- VAL din\<0\>
+    I32 (Rdy\- net011 CLKc AVDD AGND AVDD AGND) ADC00_NAND2UHDV1
+    I21 (OUTP OUTN AVDD AVDD AGND AGND net010) ADC00_NOR2UHDV1
+    I22 (net012 SAM\- AVDD AVDD AGND AGND net011) ADC00_NOR2UHDV1
+    I30 (OUTP OUTN AVDD AVDD AGND AGND net014) ADC00_XOR2UHDV1
+    I31 (din\<0\> P1 AVDD AVDD AGND AGND net5) ADC00_XOR2UHDV1
+    I23 (net09 AVDD AVDD AGND AGND net012) ADC00_INUHDV1
+    I24 (net010 AVDD AVDD AGND AGND net09) ADC00_INUHDV1
+    I28 (net014 net029 AVDD AGND AVDD AGND) ADC00_INUHDV2
+    I29 (net029 VAL AVDD AGND AVDD AGND) ADC00_INUHDV2
+    I26 (SAM\- SAM AVDD AGND AVDD AGND) ADC00_INUHDV2
+    I27 (net5 Rdy\- AVDD AGND AVDD AGND) ADC00_INUHDV2
+ends ADC00_Logic_ComparatorControl_standard
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: ADC00
+// View name: schematic
+subckt ADC00 DOUT\<7\> DOUT\<6\> DOUT\<5\> DOUT\<4\> DOUT\<3\> DOUT\<2\> \
+        DOUT\<1\> DOUT\<0\> SELECT CLK VDD VINN VINP VCM VREFN VREFP GND
+    I92 (CK\- GND P_OUT0 VDD VINP VCM) ADC00_DAC_SW_1
+    I91 (CK\- GND N_OUT0 VDD VINN VCM) ADC00_DAC_SW_1
+    I39 (GND VDD CLKc CAP_N CAP_P net040 net039) ADC00_Comparator_3
+    I254 (SELECT VDD VDD GND GND net063) ADC00_BUFUHDV4
+    I251 (net033 VDD VDD GND GND net091) ADC00_BUFUHDV4
+    I276 (down VDD VDD GND GND a\<0\>) ADC00_BUFUHDV4
+    I275 (a\<0\> VDD VDD GND GND b\<0\>) ADC00_BUFUHDV4
+    I264 (CLK SEL net066 VDD GND VDD GND) ADC00_NAND2UHDV1
+    I255 (net063 VDD VDD GND GND SEL) ADC00_BUFUHDV24
+    I267 (net082 VDD VDD GND GND CK\-) ADC00_BUFUHDV24
+    I252 (net091 VDD VDD GND GND CK) ADC00_BUFUHDV24
+    I249 (net079 VDD VDD GND GND CLKc) ADC00_BUFUHDV24
+    I33 (CKS GND VDD VCM CAP_P) ADC00_DAC_bootstrap_new
+    I8 (CKS GND VDD VCM CAP_N) ADC00_DAC_bootstrap_new
+    I263 (R0 VDD VDD GND GND QCLK0) ADC00_INUHDV1
+    I262 (R1 VDD VDD GND GND QCLK1) ADC00_INUHDV1
+    I261 (R2 VDD VDD GND GND QCLK2) ADC00_INUHDV1
+    I260 (R3 VDD VDD GND GND QCLK3) ADC00_INUHDV1
+    I256 (R7 VDD VDD GND GND QCLK7) ADC00_INUHDV1
+    I259 (R4 VDD VDD GND GND QCLK4) ADC00_INUHDV1
+    I265 (net066 VDD VDD GND GND CKS) ADC00_INUHDV1
+    I257 (R6 VDD VDD GND GND QCLK6) ADC00_INUHDV1
+    I258 (R5 VDD VDD GND GND QCLK5) ADC00_INUHDV1
+    I272 (CAP_N GND P_OUT0 P_OUT1 P_OUT2 P_OUT3 P_OUT4 P_OUT5 P_OUT6 \
+        P_OUT7 P_OUT8) ADC00_DAC_CapArray
+    I273 (CAP_P GND N_OUT0 N_OUT1 N_OUT2 N_OUT3 N_OUT4 N_OUT5 N_OUT6 \
+        N_OUT7 N_OUT8) ADC00_DAC_CapArray
+    I224 (QCLK1 a\<1\> DOUT\<1\> VDD VDD GND GND) ADC00_DQUHDV1
+    I223 (QCLK5 a\<5\> DOUT\<5\> VDD VDD GND GND) ADC00_DQUHDV1
+    I222 (QCLK4 a\<4\> DOUT\<4\> VDD VDD GND GND) ADC00_DQUHDV1
+    I221 (QCLK0 down DOUT\<0\> VDD VDD GND GND) ADC00_DQUHDV1
+    I225 (QCLK2 a\<2\> DOUT\<2\> VDD VDD GND GND) ADC00_DQUHDV1
+    I226 (QCLK6 a\<6\> DOUT\<6\> VDD VDD GND GND) ADC00_DQUHDV1
+    I227 (QCLK3 a\<3\> DOUT\<3\> VDD VDD GND GND) ADC00_DQUHDV1
+    I228 (QCLK7 a\<7\> DOUT\<7\> VDD VDD GND GND) ADC00_DQUHDV1
+    I268 (CKS VDD VDD GND GND net082) ADC00_BUFUHDV16
+    I250 (net046 VDD VDD GND GND VAL) ADC00_BUFUHDV16
+    I248 (net039 VDD VDD GND GND OUTP) ADC00_BUFUHDV3
+    I247 (net040 VDD VDD GND GND OUTN) ADC00_BUFUHDV3
+    I83 (CK\- GND P1 N_OUT1 b\<0\> VCM VDD VREFN VINN VREFP) \
+        ADC00_DAC_SW_2
+    I84 (CK\- GND P2 N_OUT2 a\<1\> VCM VDD VREFN VINN VREFP) \
+        ADC00_DAC_SW_2
+    I85 (CK\- GND P3 N_OUT3 a\<2\> VCM VDD VREFN VINN VREFP) \
+        ADC00_DAC_SW_2
+    I86 (CK\- GND P4 N_OUT4 a\<3\> VCM VDD VREFN VINN VREFP) \
+        ADC00_DAC_SW_2
+    I87 (CK\- GND P5 N_OUT5 a\<4\> VCM VDD VREFN VINN VREFP) \
+        ADC00_DAC_SW_2
+    I88 (CK\- GND P6 N_OUT6 a\<5\> VCM VDD VREFN VINN VREFP) \
+        ADC00_DAC_SW_2
+    I89 (CK\- GND P7 N_OUT7 a\<6\> VCM VDD VREFN VINN VREFP) \
+        ADC00_DAC_SW_2
+    I90 (CK\- GND P8 N_OUT8 a\<7\> VCM VDD VREFN VINN VREFP) \
+        ADC00_DAC_SW_2
+    I82 (CK\- GND P8 P_OUT8 a\<7\> VCM VDD VREFP VINP VREFN) \
+        ADC00_DAC_SW_2
+    I81 (CK\- GND P7 P_OUT7 a\<6\> VCM VDD VREFP VINP VREFN) \
+        ADC00_DAC_SW_2
+    I80 (CK\- GND P6 P_OUT6 a\<5\> VCM VDD VREFP VINP VREFN) \
+        ADC00_DAC_SW_2
+    I79 (CK\- GND P5 P_OUT5 a\<4\> VCM VDD VREFP VINP VREFN) \
+        ADC00_DAC_SW_2
+    I78 (CK\- GND P4 P_OUT4 a\<3\> VCM VDD VREFP VINP VREFN) \
+        ADC00_DAC_SW_2
+    I77 (CK\- GND P3 P_OUT3 a\<2\> VCM VDD VREFP VINP VREFN) \
+        ADC00_DAC_SW_2
+    I76 (CK\- GND P2 P_OUT2 a\<1\> VCM VDD VREFP VINP VREFN) \
+        ADC00_DAC_SW_2
+    I75 (CK\- GND P1 P_OUT1 b\<0\> VCM VDD VREFP VINP VREFN) \
+        ADC00_DAC_SW_2
+    I7 (OUTN OUTP R1 GND down P1 R0 VAL VDD) ADC00_SAR_Logic_new
+    I6 (OUTN OUTP R2 GND a\<1\> P2 R1 VAL VDD) ADC00_SAR_Logic_new
+    I5 (OUTN OUTP R3 GND a\<2\> P3 R2 VAL VDD) ADC00_SAR_Logic_new
+    I4 (OUTN OUTP R4 GND a\<3\> P4 R3 VAL VDD) ADC00_SAR_Logic_new
+    I3 (OUTN OUTP R5 GND a\<4\> P5 R4 VAL VDD) ADC00_SAR_Logic_new
+    I2 (OUTN OUTP R6 GND a\<5\> P6 R5 VAL VDD) ADC00_SAR_Logic_new
+    I1 (OUTN OUTP R7 GND a\<6\> P7 R6 VAL VDD) ADC00_SAR_Logic_new
+    I0 (OUTN OUTP CK GND a\<7\> P8 R7 VAL VDD) ADC00_SAR_Logic_new
+    I35 (GND VDD net079 OUTN OUTP P1 net033 CK\- net046 a\<0\>) \
+        ADC00_Logic_ComparatorControl_standard
+ends ADC00
+// End of subcircuit definition.
+
+// Library name: qixinLib
+// Cell name: buffer_for_adc_output
+// View name: schematic
+subckt buffer_for_adc_output DIN DOUT VDD VSS
+    NM1 (DOUT net3 VSS VSS) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    NM0 (net3 net1 VSS VSS) n18 w=(1u) l=180n nf=1 as=480f ad=480f \
+        ps=2.96u pd=2.96u nrd=270m nrs=270m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM1 (DOUT net3 VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    PM0 (net3 net1 VDD VDD) p18 w=(2u) l=180n nf=1 as=960f ad=960f \
+        ps=4.96u pd=4.96u nrd=135m nrs=135m sa=480n sb=480n sd=0 sca=0 \
+        scb=0 scc=0 m=(1)
+    R0 (DIN net1) resistor r=100 c=0
+    C0 (net1 VSS) capacitor c=100f
+ends buffer_for_adc_output
+// End of subcircuit definition.
+
+// Library name: SCH_ADC00
+// Cell name: [TestBench]
+// View name: schematic
+I4 (CLK_DAC din\<7\> din\<6\> din\<5\> din\<4\> din\<3\> din\<2\> din\<1\> \
+        din\<0\> DAC_OUT) ADC00_DAC_8b vmax=1.8 vmin=0 vth=0.7 trise=4e-12 \
+        tfall=4e-12 tconv=2e-12 slack=1e-11 traceflag=0
+I229 (SELECT_QIXIN SELECT VDD GND) buffer_for_sel
+E0 (VINP_1 VCM net50 0) vcvs gain=0.5
+E2 (VCM VINN_1 net50 0) vcvs gain=0.5
+I230 (VDD_QIXIN VDD GND GND) power_switch_for_adc
+V3 (net50 0) vsource dc=0 type=sine ampl=1.8 sinephase=0 freq=f
+V15 (VCM_1 0) vsource dc=900m type=dc
+V7 (VDD_QIXIN 0) vsource dc=1.8 type=dc
+V5 (VREFP_1 0) vsource dc=1.8 type=dc
+V4 (VREFN_1 0) vsource dc=0 type=dc
+V0 (GND 0) vsource dc=0 type=dc
+V6 (SELECT_QIXIN 0) vsource type=pulse val0=0 val1=1.8 period=1m delay=1n \
+        rise=1f fall=1f width=1m
+V2 (CLK_DAC 0) vsource type=pulse val0=0 val1=1.8 period=15n delay=27n \
+        width=1n
+V1 (CLK 0) vsource type=pulse val0=0 val1=1.8 period=15n delay=5n \
+        width=2.3n
+IPADSW0 (VINN_1 GND VDD_QIXIN VDD_QIXIN VINN GND) pad_switch_for_adc_input
+IPADSW1 (VINP_1 GND VDD_QIXIN VDD_QIXIN VINP GND) pad_switch_for_adc_input
+IPADSW2 (VCM_1 GND VDD_QIXIN VDD_QIXIN VCM GND) pad_switch_for_adc_input
+IPADSW3 (VREFP_1 GND VDD_QIXIN VDD_QIXIN VREFP GND) \
+        pad_switch_for_adc_input
+IPADSW4 (VREFN_1 GND VDD_QIXIN VDD_QIXIN VREFN GND) \
+        pad_switch_for_adc_input
+I0 (din\<7\> din\<6\> din\<5\> din\<4\> din\<3\> din\<2\> din\<1\> \
+        din\<0\> SELECT CLK VDD VINN VINP VCM VREFN VREFP GND) ADC00
+I231 (din\<0\> net042 VDD_QIXIN GND) buffer_for_adc_output
+I236 (din\<5\> net035 VDD_QIXIN GND) buffer_for_adc_output
+I235 (din\<4\> net038 VDD_QIXIN GND) buffer_for_adc_output
+I232 (din\<1\> net040 VDD_QIXIN GND) buffer_for_adc_output
+I238 (din\<7\> net036 VDD_QIXIN GND) buffer_for_adc_output
+I237 (din\<6\> net037 VDD_QIXIN GND) buffer_for_adc_output
+I234 (din\<3\> net039 VDD_QIXIN GND) buffer_for_adc_output
+I233 (din\<2\> net041 VDD_QIXIN GND) buffer_for_adc_output
+simulatorOptions options psfversion="1.4.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27.0 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 \
+    rforce=1 maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=5u errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save V7:p 
+saveOptions options save=allpub
+ahdl_include "/SM03/home/bs2023/bs202364831481/tapeout/SCH_ADC00/ADC00_DAC_8b/veriloga/veriloga.va"
